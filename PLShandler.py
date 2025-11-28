@@ -1,8 +1,8 @@
 import os
 import struct
 
-from Cryptodome.Cipher import AES
-from Cryptodome.Random import get_random_bytes
+from Crypto.Cipher import AES
+from Crypto.Random import get_random_bytes
 
 
 def encrypt_file(key, in_filename, out_filename=None, chunksize=64 * 1024):
