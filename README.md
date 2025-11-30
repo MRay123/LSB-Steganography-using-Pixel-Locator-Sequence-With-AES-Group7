@@ -2,15 +2,15 @@
 
 First, clone the local repository using 
 
-    ```bash
+    
     git clone https://github.com/MRay123/LSB-Steganography-using-Pixel-Locator-Sequence-With-AES-Group7/tree/master
-    ```
+    
 
 Then run the command
 
-    ```bash
+    
     pip install -r requirements.txt
-    ```
+    
 
 This will require the neccessary modules for this program.
 
