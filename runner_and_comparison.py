@@ -5,6 +5,7 @@ import LSB as lsb
 import AES as Cipher
 from algorithms import blowfish_algorithm as CipherTwo
 from algorithms import triple_DES as CipherThree
+from time import perf_counter
 
 def run_all_algorithms_and_compare(secretMessage, passwordText):
    
@@ -26,6 +27,8 @@ def run_all_algorithms_and_compare(secretMessage, passwordText):
 
     for algo_name, enc_func in algorithms:
         print(f"\n[*] Encrypting and hiding with {algo_name}...")
+        
+        start_time = perf_counter()
 
         #LSB Global cleanup
         lsb.PLS.clear()
@@ -54,26 +57,31 @@ def run_all_algorithms_and_compare(secretMessage, passwordText):
         else:
             print(f"[!] Warning: {pls_enc_src} not found after {algo_name} encoding")
            
-        results.append((algo_name, out_image_path, os.path.getsize(out_image_path)))
+
 
         #PLS
         if os.path.exists("pls.txt"):
             os.remove("pls.txt")
+            
+        end_time = perf_counter()
+        elapsed = end_time - start_time
+        results.append((algo_name, out_image_path, os.path.getsize(out_image_path), elapsed))
 
     return results
 
 
+
 def print_comparison_table(results):
     print("\n=== Stego Image Comparison ===")
-    print(f"{'Algorithm':10} {'Output Image':25} {'Size (bytes)':12}")
-    print("-" * 50)
+    print(f"{'Algorithm':10} {'Output Image':25} {'Size (bytes)':12} {'Time (s)':10}")
+    print("-" * 70)
 
-    for algo, path, size in results:
-        print(f"{algo:10} {path:25} {size:12d}")
+    for algo, path, size, elapsed in results:
+        print(f"{algo:10} {path:25} {size:12d} {elapsed:10.6f}")
 
-    print("\nGenerated images:")
-    for algo, path, _ in results:
-        print(f"  {algo:10} -> {path}")
+
+
+
 
 def _get_decrypt_func_for_algo(algo_name: str):
     algo_name = algo_name.upper()
@@ -105,12 +113,12 @@ def decrypt_all_algorithms(passwordText: str):
             print(f"[!] PLS file not found: {pls_enc_file} (skipping)")
             continue
 
-        # Clean working files
+        
         for path in ["images/out1.png", "pls.txt.enc", "pls.txt"]:
             if os.path.exists(path):
                 os.remove(path)
 
-        # Copy this algorithm's files into the "default" names expected by LsbDecoding
+        
         shutil.copy(stego_image, "images/out1.png")
         shutil.copy(pls_enc_file, "pls.txt.enc")
 
