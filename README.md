@@ -16,8 +16,8 @@ This will require the neccessary modules for this program.
 
 ## Using the program
 
-Run the main. In the terminal, it will prompt for a message, then a password. It will then display the message that has been encoded. Afterwards, it will ask for the pls password.
-In the actual paper, it would ask for the choice between encoding and decoding, but that choice isn't required here. 
+Run the main. In the terminal, it will prompt for a message, then a password. It will then request the PLS password for the file encryption. It will continue to prompt for a PLS password after every encryption algorithm. It will display the post encryption message.
+After encryption, it will display where the post lsb image is, as well as the space and time for each ecryption algorithm. For decrption, it will require you input each PLS password you used for that encryption. It will then display the message for each algorithm.
 
 ## References
 
