@@ -1,43 +1,37 @@
-# Improved LSB Steganography 
-> Improvised LSB Steganography technique using Pixel Locator Sequence with AES
+## Setup
 
-This is the implementation of our research paper based on <b>LSB Steganography</b> submitted at [Second International Conference on Cyber Computing and Communications](https://www.nitj.ac.in/icsccc2021/) arxiv preprint : [2012.02494](https://arxiv.org/abs/2012.02494).
+First, clone the local repository using 
 
-## Development Setup
+    ```bash
+    git clone https://github.com/MRay123/LSB-Steganography-using-Pixel-Locator-Sequence-With-AES-Group7/tree/master
+    ```
 
-The following modules must be installed before running this system:
+Then run the command
 
-```sh
-pip3 install Pillow pyaes hashlib numpy Cryptodome pbkdf2 binascii
-git clone https://github.com/lostmartian/Improved-LSB-Steganography.git
-python3 main.py
-```
-## What is it all about ?
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-Image steganography is the art of hiding data into images. Secret data such as messages, audio, images can be hidden inside the cover image. This is mainly achieved by hiding the data into the LSB(Least Significant Bit) of the image pixels. To improve the security of steganography, we studied data encryption with AES(Advanced Encryption Standard) and LSB based data hiding technique with advanced user-defined encrypted data distribution in pixels other than the common linear computational method of storing data in a linear form. The pixel locater sequence will contain the location of the data(in form of pixel numbers) to be encrypted/decrypted which is further encrypted with AES thus providing double encryption for data and its location stored over pixels. Steganography has many applications such as medical, military, copyright information, etc.
+This will require the neccessary modules for this program.
 
-<p align="center">
-  <img width="250" height="300" src="images/sample_cmd/encryption.PNG">
-  <br>
-  Encrytion Procedure
-</p>
+## Using the program
 
-<p align="center">
-  <img width="250" height="300" src="images/sample_cmd/decryption.PNG">
-  <br>
-  Decryption Procedure
-</p>
+Run the main. In the terminal, it will prompt for a message, then a password. It will then display the message that has been encoded. Afterwards, it will ask for the pls password.
+In the actual paper, it would ask for the choice between encoding and decoding, but that choice isn't required here. 
 
-## Creators
+## References
 
-<b>Sahil Gangurde</b> – [@lost_martian_](https://twitter.com/lost_martian_) – sahilgangurde08@gmail.com
-<br>
-<b>Krishnakant Tiwari</b> – [@Iamkkant](https://twitter.com/Iamkkant) – kkant5401@gmail.com
+<a id="1">[1]</a> 
+Pabbi, Malhotra, Manikanda (2021). 
+Implementation of Least Significant Bit Image Steganography with Advanced Encryption Standard.
+2021 International Conference on Emerging Smart Computing and Informatics (ESCI), DOI: 10.1109/ESCI50559.2021.9396884.
 
-## Contributing
+<a id="2">[2]</a> 
+Denysiuk, Savenko, Lysenko, Savenko, Kashtalian (2023). 
+Method for Detecting Steganographic Changes in Images Using Machine Learning.
+2023 13th International Conference on Dependable Systems, Services and Technologies (DESSERT), DOI: 10.1109/DESSERT61349.2023.10416453.
 
-1. Fork it
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
+<a id="3">[3]</a> 
+Tiwari; Gangurde (2021). 
+LSB Steganography Using Pixel Locator Sequence with AES
+2021 2nd International Conference on Secure Cyber Computing and Communications (ICSCCC), DOI: 10.1109/ICSCCC51823.2021.9478162.

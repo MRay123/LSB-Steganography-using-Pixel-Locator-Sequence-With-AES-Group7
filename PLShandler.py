@@ -2,6 +2,7 @@ import os
 import struct
 
 from Crypto.Cipher import AES
+from algorithms import blowfish_algorithm as CipherTwo
 from Crypto.Random import get_random_bytes
 
 

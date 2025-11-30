@@ -65,17 +65,23 @@ def LsbEncoding(encodedText):
     plsh.encrypt_file(key, 'pls.txt')
 
 
-def LsbDecoding():
+def LsbDecoding(pls_filename='pls.txt.enc', stego_image='images/out1.png'):
+    
     plspassword = input("Insert Password for pls decryption :")
     key = hashlib.sha256(plspassword.encode()).digest()
-    plsh.decrypt_file(key, 'pls.txt.enc', 'out.txt')
+    
+    plsh.decrypt_file(key, pls_filename, 'out.txt')
+    
     pls = np.genfromtxt('out.txt', delimiter='\t')
+    
     if os.path.exists("out.txt"):
         os.remove("out.txt")
-    if os.path.exists("pls.txt.enc"):
+    if os.path.exists(pls_filename):
         os.remove("pls.txt.enc")
+        
     decodedTextInBits = []
-    stegoImage = Image.open(r"images/out1.png")
+    stegoImage = Image.open(stego_image)
+    
     for i in range(0, len(pls), 3):
         ithChar = ""
         for j in range(0, 3):
