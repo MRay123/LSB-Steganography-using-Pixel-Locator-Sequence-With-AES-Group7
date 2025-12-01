@@ -1,8 +1,5 @@
 pbkdf2
-binascii
 pyaes
-Crypto
-Pillow 
-hashlib 
-numpy 
-Cryptodome 
+Pillow
+numpy
+pycryptodome
