@@ -25,8 +25,7 @@ def main():
         password = input("Enter the password for decryption: ")
         decrypt_all_algorithms(password)
 
-    else:
-        print("Invalid Selection")
+
 
 
 
@@ -36,3 +35,4 @@ def main():
 
 
 main()
+
