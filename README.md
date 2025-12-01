@@ -19,6 +19,8 @@ This will require the neccessary modules for this program.
 Run the main. In the terminal, it will prompt for a message, then a password. It will then request the PLS password for the file encryption. It will continue to prompt for a PLS password after every encryption algorithm. It will display the post encryption message.
 After encryption, it will display where the post lsb image is, as well as the space and time for each ecryption algorithm. For decrption, it will require you input each PLS password you used for that encryption. It will then display the message for each algorithm.
 
+In the ecc-version branch, there is the algorithm encoded with ecc that we couldn't fully integrate.
+
 ## References
 
 <a id="1">[1]</a> 
